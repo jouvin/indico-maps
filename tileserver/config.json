@@ -1,11 +1,11 @@
 {
     "data": {
-        "cern": {
+        "fluo": {
             "mbtiles": "fluo.mbtiles"
         }
     },
     "styles": {
-        "cern": {
+        "fluo": {
             "style": "styles/fluo.json",
             "tilejson": {
                 "bounds": [2.167986, 48.696632, 2.178930, 48.700760]
