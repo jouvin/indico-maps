@@ -20,12 +20,12 @@ COPY shapes/* maps/shapes/
 
 WORKDIR /maps
 
-# get Switzerland map and crop it to the CERN area
-RUN wget https://planet.osm.ch/switzerland.pbf && \
-    osmconvert ./switzerland.pbf --complete-ways --out-pbf -b=5.9992195,46.2,6.1225052,46.3168303 > ./cern.osm.pbf
+# get Ile-de-France map and crop it to the FLUO area
+RUN wget https://download.geofabrik.de/europe/france/ile-de-france-latest.osm.pbf && \
+    osmconvert ./ile-de-france-latest.osm.pbf --complete-ways --out-pbf -b=2.167986,48.696632,2.178930,48.700760 > ./fluo.osm.pbf
 
 # transform OSM data into vector tiles (.mbtiles file)
-RUN tilemaker ./cern.osm.pbf --config tiles.json --output ./out/cern.mbtiles
+RUN tilemaker ./fluo.osm.pbf --config tiles.json --output ./out/fluo.mbtiles
 
 # second stage, the tile server
 # we're not using klokantech/tileserver-gl-light directly because
@@ -56,7 +56,7 @@ RUN apt-get -qq update \
 RUN cd /usr/src/app && npm install tileserver-gl
 
 # let's take the final product of the build stage
-COPY --from=builder /maps/out/cern.mbtiles /data
+COPY --from=builder /maps/out/fluo.mbtiles /data
 COPY tileserver/config.json /data/
 COPY styles /data/styles
 COPY tileserver/run.sh /usr/src/app

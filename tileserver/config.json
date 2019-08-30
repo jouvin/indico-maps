@@ -1,14 +1,14 @@
 {
     "data": {
         "cern": {
-            "mbtiles": "cern.mbtiles"
+            "mbtiles": "fluo.mbtiles"
         }
     },
     "styles": {
         "cern": {
-            "style": "styles/cern.json",
+            "style": "styles/fluo.json",
             "tilejson": {
-                "bounds": [5.999219, 46.2, 6.122505, 46.316830]
+                "bounds": [2.167986, 48.696632, 2.178930, 48.700760]
             }
         }
      }
