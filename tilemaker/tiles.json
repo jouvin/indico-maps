@@ -37,10 +37,7 @@
     },
     "fluo_sites": {
       "minzoom": 13,
-      "maxzoom": 14,
-      "source": "shapes/fluo.shp",
-      "index": true,
-      "index_column": "NAME"
+      "maxzoom": 14
     }
   },
   "settings": {
