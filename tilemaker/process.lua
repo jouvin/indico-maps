@@ -36,11 +36,15 @@ function way_function(way)
     end
     if building~="" then
         local name = way:Find("name")
-        if name ~= "" then
-            way:LayerAsCentroid("building_names")
-            way:Attribute("name", name)
+        if way:Intersects("fluo_sites") then
+            way:Layer("fluo_building", true)
+            if name ~= "" then
+                way:LayerAsCentroid("building_names")
+                way:Attribute("name", name)
+            end
+        else
+            way:Layer("building", true)
         end
-        way:Layer("building", true)
     end
     if amenity == "research_institute" then
         way:Layer("limits", false)
