@@ -21,7 +21,7 @@ COPY shapes/* maps/shapes/
 WORKDIR /maps
 
 # get Ile-de-France map and crop it to the FLUO area
-RUN wget https://download.geofabrik.de/europe/france/ile-de-france-latest.osm.pbf && \
+RUN wget --no-verbose https://download.geofabrik.de/europe/france/ile-de-france-latest.osm.pbf && \
     osmconvert ./ile-de-france-latest.osm.pbf --complete-ways --out-pbf -b=2.156595,48.694895,2.179992,48.705429 > ./fluo.osm.pbf
 
 # transform OSM data into vector tiles (.mbtiles file)
